@@ -2,6 +2,7 @@ package net.muluk.iceandfirereborn.mixin;
 
 import com.github.alexthe666.citadel.animation.IAnimatedEntity;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
@@ -97,7 +98,7 @@ abstract class EntityDragonBaseMixin extends TamableAnimal implements IAnimatedE
     }
 
     /**
-     * Check if the dragon has a saddle in the inventory slot 5.
+     * Check if the dragon has a saddle in the inventory.
      */
     @Unique
     boolean iceAndFire_Reborn_1_20_1_Forge$hasSaddle() {
@@ -129,28 +130,29 @@ abstract class EntityDragonBaseMixin extends TamableAnimal implements IAnimatedE
 
     @Inject(method = "mobInteract", at = @At("HEAD"), cancellable = true)
     private void handleSaddleInteraction(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
+        ItemStack stack = player.getMainHandItem();
 
         if (!this.isOwnedBy(player) || this.getDragonStage() <= 2) {
             return;
         }
 
-        if (!player.isShiftKeyDown()) {
-            if (iceAndFire_Reborn_1_20_1_Forge$hasSaddle()) {
-                if (!player.isPassenger() && !this.isBaby()) {
-                    player.startRiding(this, true);
-                    cir.setReturnValue(InteractionResult.SUCCESS);
+        if (this.isOwnedBy(player) && stack.isEmpty() && this.getDragonStage() > 2 && !player.isShiftKeyDown()) {
+            if (!level().isClientSide) {
+                if (iceAndFire_Reborn_1_20_1_Forge$hasSaddle()) {
+                    if (!player.isPassenger() && !this.isBaby()) {
+                        player.startRiding(this, true);
+                        cir.setReturnValue(InteractionResult.SUCCESS);
+                        cir.cancel();
+                    }
+                } else {
+                    player.displayClientMessage(Component.translatable("entity.iceandfirereborn.dragon.no_saddle"), true);
+                    cir.setReturnValue(InteractionResult.FAIL);
+                    cir.cancel();
                 }
-            } else {
-                player.displayClientMessage(Component.translatable("entity.iceandfirereborn.dragon.no_saddle"), true);
-                cir.setReturnValue(InteractionResult.FAIL);
             }
         }
     }
 
-
-    /**
-     * Helper method to get dragon stage, assuming it's available.
-     */
     @Shadow(remap = false)
     public abstract int getDragonStage();
 }
