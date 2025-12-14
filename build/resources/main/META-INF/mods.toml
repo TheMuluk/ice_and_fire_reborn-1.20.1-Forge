@@ -1,0 +1,35 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "Insert License Here"
+
+[[mods]]
+modId = "iceandfirereborn"
+version = "1.0.0"
+displayName = "Ice and Fire: Reborn"
+authors = "Muluk"
+description = '''
+This is an example description! Tell everyone what your mod is about!
+'''
+#logoFile = ""
+
+[[dependencies.iceandfirereborn]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.iceandfirereborn]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.iceandfirereborn]]
+modId="iceandfire"
+mandatory=false
+versionRange="[2.1.13-1.20.1,)"
+ordering="NONE"
+side="BOTH"
