@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "t t",
+    "lll",
+    "fsf"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:saddle"
+    },
+    "f": {
+      "tag": "iceandfirereborn:feathers"
+    },
+    "l": {
+      "tag": "iceandfirereborn:troll_leather"
+    },
+    "t": {
+      "item": "iceandfire:troll_tusk"
+    }
+  },
+  "result": {
+    "item": "iceandfirereborn:dragon_saddle"
+  },
+  "show_notification": true
+}

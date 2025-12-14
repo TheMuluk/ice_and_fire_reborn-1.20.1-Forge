@@ -1,16 +1,14 @@
 modLoader = "javafml"
 loaderVersion = "[47,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "GNU LESSER GENERAL PUBLIC LICENSE V3.0"
 
 [[mods]]
 modId = "iceandfirereborn"
 version = "${version}"
 displayName = "Ice and Fire: Reborn"
 authors = "Muluk"
-description = '''
-This is an example description! Tell everyone what your mod is about!
-'''
+description = '''An expansion mod that enhances and rebalances Ice and Fire: Dragons.'''
 #logoFile = ""
 
 [[dependencies.iceandfirereborn]]
