@@ -1,6 +1,6 @@
-Ice and Fire: Reborn
+Dragon Reborn
 
-**Ice and Fire: Reborn** is an expansion mod for **Ice and Fire: Dragons**, focused on enhancing, rebalancing, and extending existing mechanics while staying true to the original mod’s vision.
+**Dragon Reborn** is an expansion mod for **Ice and Fire: Dragons**, focused on enhancing, rebalancing, and extending existing mechanics while staying true to the original mod’s vision.
 
 The mod aims to improve gameplay depth, progression, and balance by introducing new mechanics, adjusted items, and additional systems that integrate seamlessly with Ice and Fire.
 
